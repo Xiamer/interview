@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="left">左侧</div>
+    <div class="middle">中间 父元素高度无法撑开</div>
+    <div class="right">右侧</div>
+  </div>
+
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap {
+      background: lightpink;
+      position: relative;
+    }
+
+    .left {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgb(145, 144, 144);
+    }
+
+    .right {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: lightblue;
+    }
+
+    .middle {
+      height: 50px;
+      /* margin: 0 100px 0 100px; */
+      position: absolute;
+      left: 100px;
+      right: 100px;
+      background: #555;
+    }
+  </style>
+</body>
+
+</html>

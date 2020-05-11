@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script>
+  // 美团
+  //根据屏幕大小及dpi调整缩放和大小
+  (function () {
+    var scale = 1.0;
+    var ratio = 1;
+    if (window.devicePixelRatio >= 2) {
+      scale *= 0.5;
+      ratio *= 2;
+    }
+    var text = '<meta name="viewport" content="initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', width=device-width, user-scalable=no" />';
+    document.write(text);
+    document.documentElement.style.fontSize = 50 * ratio + "px";
+  })();
+
+
+</script>
+<script>
+  (function (doc, win) {
+    var docEl = win.document.documentElement;
+    var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+    var metaEl = doc.querySelector('meta[name="viewport"]');
+    var dpr = 0;
+    var scale = 0;
+    // 对iOS设备进行dpr的判断，对于Android系列，始终认为其dpr为1
+    if (!dpr && !scale) {
+      var isAndroid = win.navigator.appVersion.match(/android/gi);
+      var isIPhone = win.navigator.appVersion.match(/[iphone|ipad]/gi);
+      var devicePixelRatio = win.devicePixelRatio;
+      if (isIPhone) {
+        dpr = devicePixelRatio;
+      } else {
+        drp = 1;
+      }
+      scale = 1 / dpr;
+    }
+    /**
+      * ================================================
+      *   设置data-dpr和viewport
+      × ================================================
+      */
+    docEl.setAttribute('data-dpr', dpr);
+    // 动态改写meta:viewport标签
+    if (!metaEl) {
+      metaEl = doc.createElement('meta');
+      metaEl.setAttribute('name', 'viewport');
+      metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+      document.documentElement.firstElementChild.appendChild(metaEl);
+    } else {
+      metaEl.setAttribute('content', 'width=device-width, initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');
+    }
+  })(document, window);
+
+</script>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .inbl {
+    display: inline-block;
+    margin-right: 20px;
+  }
+</style>
+
+<body id="body">
+  <div style=""></div>
+  <div>
+    <input type="button" value="测试">
+  </div>
+  <div id="para" style="width: 200px;height: 200px;margin: 20px 20px 30px 30px;padding:10px;box-sizing: border-box;">点我
+  </div>
+  <div style="display: block;width: 300px;height: 300px;background: brown;">
+    <div style="width: 50px;height: 100px;background: yellow;"></div>
+    <div style="width: 100px;height: 100px;background: red;"></div>
+    <div style="width: 50px;height: 100px;background: yellow;"></div>
+    <!-- <div style="width: 300px;height: 100px;background: black;"></div> -->
+  </div>
+  <div
+    style="width: 0px;height: 0px;border-top: 50px solid red;border-left: 50px solid transparent;border-right: 50px solid transparent;"
+    class="inbl">
+  </div>
+  <div class="inbl"
+    style="width: 0px;height: 0px;border-left: 50px solid blue;border-top: 50px solid transparent;border-bottom: 50px solid transparent;">
+  </div>
+  <div class="inbl"
+    style="width: 0px;height: 0px;border-top: 50px solid rebeccapurple;border-left: 50px solid transparent;"></div>
+  <div class="inbl" style="width: 0px;height: 0px;border-bottom: 50px solid red;border-left: 50px solid transparent;">
+  </div>
+
+  <div class="inbl" style="width: 50px;height: 50px;transform:skew(20deg);background: salmon;"></div>
+
+
+  <div class="inbl"
+    style="border-bottom: 20px solid red;border-left: 20px solid transparent;border-right: 20px solid transparent;width: 20px;">
+  </div>
+
+  <div class="inbl"
+    style="border-right: 20px solid red;border-top: 20px solid transparent;border-bottom: 20px solid transparent;height: 20px;">
+  </div>
+  <div class="inbl"
+    style="width: 50px; height: 50px; background: green;transform: rotate(120deg);transform-origin: left top;"></div>
+
+  <div style="width: 20px;height:20px;"></div>
+</body>
+<script>
+  var $input = document.getElementsByTagName("input")[0];
+  var $div = document.getElementsByTagName("div")[0];
+  var $body = document.getElementsByTagName("body")[0];
+
+  //  false为冒泡   false为捕获
+
+  $input.addEventListener('click', function (e) {
+    console.log('我是input-target', e.target);
+    console.log('我是input-currentTarget', e.currentTarget);
+  }, false);
+
+  $div.addEventListener('click', function (e) {
+    console.log('我是div-target', e.target);
+    console.log('我是div-currentTarget', e.currentTarget);
+  }, true);
+
+  $body.addEventListener('click', function (e) {
+    console.log('我是body-target', e.target);
+    console.log('我是body-currentTarget', e.currentTarget);
+  }, false);
+  var a = { a: 1 };
+  console.log(c);
+  window.addEventListener('error', function (event) {
+    if (event) {
+      var target = event.target;
+      console.log('error', target);
+    }
+  }, true);
+
+
+
+  // window.onerror = function (msg, url, lineNo, columnNo, error) {
+  //   // 处理错误信息
+  //   console.log('onerror- msg', msg);
+  // }
+
+
+  // window.onerror = function (event) {
+  //   console.log('error- error', target);
+  // }
+
+
+  // var para = document.getElementById('para');w
+
+  // para.addEventListener('click', function () { console.log(1) }, false);
+  // var event = new Event('click');
+  // para.dispatchEvent(event);
+
+</script>
+<script src="./12.js"></script>
+
+</html>

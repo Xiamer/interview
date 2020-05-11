@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .container {
+      padding: 0 100px;
+      overflow: hidden;
+    }
+
+    .container>div {
+      height: 200px;
+    }
+
+    .center {
+      float: left;
+      width: 100%;
+      background: yellow;
+    }
+
+    .left {
+      float: left;
+      width: 100px;
+      background: red;
+      margin-left: -100%;
+      position: relative;
+      left: -100px;
+    }
+
+    .right {
+      float: left;
+      width: 100px;
+      background: blue;
+      margin-left: -100px;
+      position: relative;
+      right: -100px;
+    }
+  </style>
+  <div class="container">
+    <div class="center">圣杯布局</div>
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+</body>
+
+</html>

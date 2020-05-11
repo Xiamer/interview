@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style type="text/css">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    overflow: hidden;
+  }
+
+
+  .center-container {
+    float: left;
+    width: 100%;
+    background: yellow;
+  }
+
+  .center {
+    margin: 0 100px;
+    background: rgb(46, 106, 185);
+  }
+
+  .left {
+    background: red;
+    float: left;
+    width: 100px;
+    margin-left: -100%;
+  }
+
+  .right {
+    background: blue;
+    float: left;
+    width: 100px;
+    margin-left: -100px;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <div class="center-container">
+      <div class="center">
+        <h1>双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局</h1>
+      </div>
+    </div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+
+
+
+  <div style="overflow: hidden;">
+    <div class="container1" style="float: left;width: 100%;">
+      <div class="center1" style="background: hotpink;margin: 0 100px;">双飞翼</div>
+    </div>
+    <div class="left1" style="width: 100px;float: left;background: indianred;margin-left: -100%;">左栏</div>
+    <div class="right1" style="width: 100px;float: left;background: lawngreen;margin-left: -100px;">右边栏</div>
+  </div>
+
+</body>
+
+</html>
